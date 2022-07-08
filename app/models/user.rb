@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  belongs_to :plan
+  belongs_to :plan 
+  has_one :profile
+  
   attr_accessor :stripe_card_token
   # If  Pro users passes validation (email, password, etc)
   # then call stripe and tell stripe to set up a subscrition
